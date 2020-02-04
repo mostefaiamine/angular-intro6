@@ -1,0 +1,23 @@
+<div class="content">
+    <mat-horizontal-stepper #stepper>
+        <mat-step>
+            <ng-template matStepLabel>Accordions! </ng-template>
+            <h2>Accordions!</h2>
+            <app-tab-accordions></app-tab-accordions>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Tree</ng-template>
+            <app-tab-tree></app-tab-tree>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>Table</ng-template>
+            <app-tab-table></app-tab-table>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Dialogs</ng-template>
+            <app-tab-dialog></app-tab-dialog>
+        </mat-step>
+
+    </mat-horizontal-stepper>
+</div>

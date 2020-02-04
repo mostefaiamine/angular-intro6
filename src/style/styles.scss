@@ -1,0 +1,38 @@
+@import "./bootstrap.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #ececec;
+}
+
+.my-form {
+  background-color: white;
+  padding: 15px;
+  margin-top: 15px;
+  .mat-form-field {
+    width: 100%;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  mat-slider {
+    width: 100%;
+  }
+}
+
+.mat-tab-body-content {
+  overflow: hidden !important;
+}
+
+.mat-snack-bar-container {
+  box-shadow: unset;
+  background: unset;
+} 

@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-12">
+        <h2>Menu Navigtion</h2>
+        <button mat-button [matMenuTriggerFor]="m1">Menu Item 1</button>
+        <button mat-button [matMenuTriggerFor]="m2">Menu Item 2</button>
+        <button mat-button [matMenuTriggerFor]="m3">Menu Item 3</button>
+        <mat-menu #m1="matMenu">
+            <button mat-menu-item>Sub 1.1</button>
+            <button mat-menu-item>Sub 1.2</button>
+        </mat-menu>
+        <mat-menu #m2="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="m22">Sub 2.1</button>
+            <button mat-menu-item>Sub 1.2</button>
+        </mat-menu>
+        <mat-menu #m22="matMenu">
+            <button mat-menu-item>Sub 2.1.1</button>
+            <button mat-menu-item>Sub 2.1.2</button>
+        </mat-menu>
+        <mat-menu #m3="matMenu">
+            <button mat-menu-item>
+                <mat-icon>sports_handball</mat-icon>
+                <span>Hand Ball</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>sports_rugby</mat-icon>
+                <span>Rugby</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>sports_soccer</mat-icon>
+                <span>Football</span>
+            </button>
+        </mat-menu>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h2>Side bar</h2>
+        <mat-drawer-container class="example-container">
+            <mat-drawer mode="side" #drawer [opened]="opened">
+                <ul class="menu">
+                    <li>
+                        <mat-icon>fireplace</mat-icon><span>Menu 1</span>
+                    </li>
+                    <li>
+                        <mat-icon>domain</mat-icon><span>Menu 2</span>
+                    </li>
+                    <li>
+                        <mat-icon>drive_eta</mat-icon><span>Menu 3</span>
+                    </li>
+                </ul>
+            </mat-drawer>
+            <mat-drawer-content>
+                <div class="content" style="min-height: 500px;">
+                    <p>Hi, welcome to the sidenav-based page</p>
+                    <button type="button" mat-button primary (click)="showOrHide()">
+                        {{title}}
+                    </button>
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<form [formGroup]="form" class="my-form" *ngIf="form">
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field>
+                <input matInput placeholder="Name" [formControl]="cName">
+                <mat-error *ngIf="cName.errors?.required">This field is required ! </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Birth date" [formControl]="cBirthDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label>Situation</label>
+            <mat-radio-group aria-label="Situation" [formControl]="cSituation">
+                <mat-radio-button value="1">Single</mat-radio-button>&nbsp;
+                <mat-radio-button value="2">Married</mat-radio-button>&nbsp;
+                <mat-radio-button value="3">Divorced</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>Kids</mat-label>
+                <mat-select [formControl]="cKids">
+                    <mat-option [value]="0">0</mat-option>
+                    <mat-option [value]="2">1</mat-option>
+                    <mat-option [value]="2">2</mat-option>
+                    <mat-option [value]="'*'">More</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <mat-checkbox [formControl]="cLikeMovies" style="margin-left: 20px;margin-top: 15px;">Do you like movies ?
+            </mat-checkbox>
+        </div>
+        <div class="col-6">
+            <mat-form-field class="example-full-width">
+                <input type="text" placeholder="Favorite Movie" aria-label="Number" matInput
+                    [formControl]="cFavoriteMovie" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.id">
+                        {{option.title}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label>Rate your favorite movie</label>
+            <mat-slider [min]="0" [max]="5" [formControl]="cRate"></mat-slider>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button mat-raised-button color="primary" [disabled]="form.invalid">OK</button>
+            &nbsp;
+            <button mat-raised-button>Cancel</button>
+        </div>
+    </div>
+    <div>&nbsp;</div>
+    <div>
+        {{form.value | json}}
+    </div>
+</form>
